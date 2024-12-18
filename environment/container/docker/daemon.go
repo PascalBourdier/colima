@@ -58,7 +58,7 @@ func (d dockerRuntime) createDaemonFile(conf map[string]any, env map[string]stri
 			return err
 		}
 		if vars.http != "" {
-			proxyConf["http-proxy"] = strings.ReplaceAll(vars.http, "127.0.0.1", hostGatewayIP)
+			proxyConf["http-proxy"] = strings.Replace(vars.http, "127.0.0.1", hostGatewayIP, -1)
 		}
 		if vars.https != "" {
 			proxyConf["https-proxy"] = strings.ReplaceAll(vars.https, "127.0.0.1", hostGatewayIP)
